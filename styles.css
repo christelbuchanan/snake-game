@@ -1,0 +1,132 @@
+:root{
+  --bg:#0c0f14;
+  --panel:#11161d;
+  --line: rgba(255,255,255,.10);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.62);
+  --accent:#7dd3fc;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app{
+  width:min(560px, 94vw);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom: 12px;
+}
+
+h1{ margin:0; font-size: 22px; letter-spacing:.2px; }
+.sub{ color: var(--muted); font-size: 13px; margin-top:4px; }
+
+.hud{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.pill{
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.btn{
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+.btn:hover{ background: rgba(255,255,255,.04); }
+
+.panel{
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+canvas{
+  width: 100%;
+  height: auto;
+  display:block;
+  border-radius: 12px;
+  background: #0a0d12;
+}
+
+.help{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer{
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.toast{
+  position:absolute;
+  left: 12px;
+  right: 12px;
+  top: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(17,22,29,.92);
+  color: var(--text);
+  font-size: 13px;
+  display:none;
+}
+.toast.show{ display:block; }
+
+/* Minimal on-screen controls for mobile */
+.mobile{
+  display:none;
+  margin-top: 12px;
+  gap: 8px;
+}
+.mobile .row{ display:flex; gap:8px; justify-content:center; }
+
+.dpad{
+  width: 64px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+  font-size: 16px;
+}
+.dpad:active{ background: rgba(255,255,255,.08); }
+
+@media (max-width: 520px){
+  .help{ flex-direction:column; }
+  .mobile{ display:grid; justify-items:center; }
+}
